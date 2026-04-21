@@ -1,0 +1,46 @@
+
+*
+{
+	margin:0;
+	padding:0;
+	
+}
+
+.container-fluid
+{
+	
+	
+
+
+}
+
+
+
+.singup
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+#loading
+{
+	position: absolute;
+	right:0;
+	top:45px;
+	margin-right: 5px;
+	
+}
+#singup_div
+{
+	position: relative;
+
+}
+
+#otp_box
+{
+	position: absolute;
+	right:0;
+	
+}
