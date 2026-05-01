@@ -54,9 +54,7 @@
 
 .used_strge
 {
-	width:20%;
-	background-color: red;
-	margin: 0;
+	
 }
 
 
@@ -70,4 +68,10 @@
 	cursor: pointer;
 	position:absolute;
 	z-index: 1;
+}
+
+.thumb 
+{
+	width:75px;
+	height:75px;
 }
