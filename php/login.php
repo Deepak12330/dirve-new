@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	$login_user = $_POST['login_user'];
 	$login_password = $_POST['login_password'];
 	
@@ -19,6 +19,7 @@
 		else
 		{
 			echo "success";
+			$_SESSION['users'] = $login_user;
 		}
 	}
 
