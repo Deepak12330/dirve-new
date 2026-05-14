@@ -127,8 +127,13 @@
 								</div>
 
 
-								<h3>My files</h3>
-								<h3>Plan</h3>
+									<ul class="my_menu">
+										<li class="menu" p_link="files">my files </li>
+										<li class="menu" p_link="plans">Plans</li>
+
+
+										
+									</ul>
 								
 							</form>
 
@@ -343,6 +348,21 @@
 	    				window.location.replace("../index.php");
 	    			}
 	    		}
+	    	})
+	    })
+
+	    $(".menu").each(function(){
+	    	$(this).click(function(){
+	    		var  a = $(this).attr("p_link");
+	    		$.ajax({
+	    			type:"POST",
+	    			url:"../php/pages/"+a+".php",
+
+	    			success:function(response)
+	    			{
+	    				alert(response);
+	    			}
+	    		})
 	    	})
 	    })
 
