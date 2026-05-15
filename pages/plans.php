@@ -22,6 +22,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 </head>
 <body class="bg-light">
 
@@ -220,21 +222,49 @@
 </div>
 
 <script>
-	
-	$(document).ready(function(){
-		
-			$(".buy_plan").click(function(){
-			 var price = $(this).closest(".card").find(".pur_value").text();
-			 alert(price);
 
+$(document).ready(function(){
 
-			})
+    $(".buy_plan").click(function(){
 
-		
-	})
+        var priceText = $(this).closest(".card").find(".pur_value").text();
+        var amount = parseInt(priceText.replace("₹","")) * 100;
 
+        var options = {
+            "key": "rzp_test_xxxxxxxx",
+            "amount": amount,
+            "currency": "INR",
+            "name": "NetGen Pvt Ltd",
+            "description": "Plan Purchase",
+
+            "handler": function (response) {
+                alert("Payment Success: " + response.razorpay_payment_id);
+                console.log(response);
+            },
+
+            "prefill": {
+                "name": "<?php echo $email; ?>",
+                "email": "test@gmail.com",
+                "contact": "9999999999"
+            },
+
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp = new Razorpay(options);
+        rzp.open();
+
+    });
+
+});
 
 </script>
+
+
+
+
 
 
 </body>
